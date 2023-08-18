@@ -14,40 +14,18 @@
  11. Через cat добавить в текстовый файл tf_2.txt строку “the sec 3” - cat >> tf_3.txt, ctrl+C
  12. Через cat добавить в текстовый файл tf_3.txt строку “the SeCoNd 2” - cat >> tf_3.txt, ctrl+C
  13. Через cat добавить в текстовый файл tf_2.txt строку “the seConD 2” - cat >> tf_3.txt, ctrl+C
- 14. Сделать текстовый файл tf_4.txt в котором будет 15 строк. - cat > tf_4.txt 
-1) Moscwa
-2) NewYork
-3) LosAngeles
-4) Rostov
-5) kraina  Ukraina
-6) Belarus
-7) Soche
-8) Ryzan
-9) Krasnodar
-10) Korolev
-11) Novgorod
-12) Antalya
-13) Turkiya
-14) Minsk
-15) Saratov
-Ctrl+C
-cat tf_4.txt
- 15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.  - cat > tf_5.txt
-1) Moskvich
-2) Mercedes
-3) LADA
-4) Mazda
-5) Audi
-6) BMW
-7) Toyta
-8) VW
-9) Skoda
-10) Volva
-11) Honda
-12) Lexus
-13) Haval
-Ctrl+C
-cat tf_5.txt
+ 14. Сделать текстовый файл tf_4.txt в котором будет 15 строк.
+#!/bin/bash
+touch tf_4.txt
+for (( i=1; i<=15; i++ )); do
+echo  "line $i"
+done > tf_4.txt
+ 15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.
+#!/bin/bash
+touch tf_5.txt
+for (( i=1; i<=13; i++ )); do
+echo  "line $i"
+done > tf_5.txt
 16. Вывести список всех файлов в папке. - ls -l
 17. Выйти из папки inner_dir_1 - cd ..
 18. Вывести содержимое файла tf_3.txt в терминал. - cat tf_3.txt
@@ -64,57 +42,20 @@ cat tf_5.txt
 29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем  -  grep -R second *
 30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке -  grep -L second *
 31. Найти все строки во всех файлах где нет комбинации “second”  -  grep -v second *
-tf_3.txt:adidas
-tf_3.txt:ribbok
-tf_3.txt: e  bok
-tf_3.txt:nike
-tf_3.txt:the sec 2
-tf_3.txt:the sec 3
-tf_3.txt:the SeCoNd 2
-tf_4.txt:1) Moscwa
-tf_4.txt:2) NewYork
-tf_4.txt:3) LosAngeles
-tf_4.txt:4) Rostov
-tf_4.txt:5) kraina  Ukraina
-tf_4.txt:6) Belarus
-tf_4.txt:7) Soche
-tf_4.txt:8) Ryzan
-tf_4.txt:9) Krasnodar
-tf_4.txt:10) Korolev
-tf_4.txt:11) Novgorod
-tf_4.txt:12) Antalya
-tf_4.txt:13) Turkiya
-tf_4.txt:14) Minsk
-tf_4.txt:15) Saratov
-tf_5.txt:1) Moskvich
-tf_5.txt:2) Mercedes
-tf_5.txt:3) LADA
-tf_5.txt:4) Mazda
-tf_5.txt:5) Audi
-tf_5.txt:6) BMW
-tf_5.txt:7) Toyta
-tf_5.txt:8) VW
-tf_5.txt:9) Skoda
-tf_5.txt:10) Volva
-tf_5.txt:11) Honda
-tf_5.txt:12) Lexus
-tf_5.txt:13) Haval
 32. Найти только название и путь к файлам где нет комбинации “second”   - grep -vl second *
 33. Вывести в терминал 4 последних строк любого текстового файла -  tail -4 tf_5.txt
-10) Volva
-11) Honda
-12) Lexus
-13) Haval
-
+line 10
+line 11
+line 12
+line 13
 34. Вывести в терминал 4 первые строки любого текстового файла.  - head -4 tf_5.txt
-1) Moskvich
-2) Mercedes
-3) LADA
-4) Mazda
-
+line 1
+line 2
+line 3
+line 4
 35. Команда в одну строку. Создать папку и создать текстовый файл с содержиммым.  -  mkdir papka && echo Hello world > 123.txt
-36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”  - grep -l -r sec| xargs -I {} mv {} tf_3.txt
-37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec” - grep -l -r sec| xargs -I {} cp {} tf_6
+36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”  -  grep -R sec|mv tf_3.txt ../tf_3.txt
+37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec” -  grep -R sec|cp tf_3.txt ../tf_3.txt
 38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.   -  grep -r sec|cat >> tf_6.txt
 39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”   -  grep -rl sec|xargs rm -f
 40. Просто вывести в терминал строку “Good job!!”   -  echo “Good job!!”
